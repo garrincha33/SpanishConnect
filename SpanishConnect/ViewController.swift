@@ -7,17 +7,17 @@
 //
 
 import UIKit
-import FirebaseAuth
+import Firebase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //MARK:- setup buttons
     
     let plusButtonPhoto: UIButton = {
-
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "plus_photo").withRenderingMode(.alwaysOriginal), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(handleSelectedPhoto), for: .touchUpInside)
         return button
     }()
     
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         button.isEnabled = false
         return button
     }()
-    
+
     //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,6 +80,30 @@ class ViewController: UIViewController {
         setupInputFields()
     }
     
+    //MARK:- PhotoButton
+    internal func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            plusButtonPhoto.setImage(editedImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        } else if let orignalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            plusButtonPhoto.setImage(orignalImage.withRenderingMode(.alwaysOriginal), for: .normal)
+        }
+        
+        plusButtonPhoto.layer.cornerRadius = plusButtonPhoto.frame.width / 2
+        plusButtonPhoto.layer.masksToBounds = true //needs to be set for corner radius visabilty
+        plusButtonPhoto.layer.borderColor = UIColor.black.cgColor
+        plusButtonPhoto.layer.borderWidth = 3
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    @objc fileprivate func handleSelectedPhoto() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        present(imagePickerController, animated: true, completion: nil)
+
+    }
     //MARK:- Helper Methods
     @objc fileprivate func handleTextInputDidChange() {
         let isFormValid = !(emailTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)! && !(passwordTextField.text?.isEmpty)!
@@ -89,13 +113,10 @@ class ViewController: UIViewController {
         } else {
             signUpButton.isEnabled = false
             signUpButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
-            
-            //test
         }
     }
     
     @objc fileprivate func handleSignUp() {
-        //create test user
         guard let email = emailTextField.text, !email.isEmpty else {return}
         guard let username = usernameTextField.text, !username.isEmpty else {return}
         guard let password = passwordTextField.text, !password.isEmpty else {return}
@@ -107,6 +128,41 @@ class ViewController: UIViewController {
             }
             
             print("success...created a user in firebase")
+            
+            //upload photo
+            
+            guard let image = self.plusButtonPhoto.imageView?.image else {return}
+            guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else {return}
+            let filename = NSUUID().uuidString
+            
+            let storageRef = Storage.storage().reference()
+            let storageRefChild = storageRef.child("profile_images").child(filename)
+            storageRefChild.putData(uploadData, metadata: nil, completion: { (metadata, err) in
+                if let err = err {
+                    print("Unable to upload image into storage due to: \(err)")
+                }
+                
+                storageRefChild.downloadURL(completion: { (url, err) in
+                    if let err = err {
+                        print("Unable to retrieve URL due to error: \(err.localizedDescription)")
+                        return
+                    }
+                    let profilePicUrl =  url?.absoluteString
+                    print("Profile Image successfully uploaded into storage with url: \(profilePicUrl ?? "" )")
+                    
+                    guard let uid = user?.uid else {return}
+                    let dictionaryValues = ["username": username, "profilePicUrl": profilePicUrl]
+                    let values = [uid: dictionaryValues]
+                    
+                    Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+                        if let err = err {
+                            print("failed to save user info", err)
+                            return
+                        }
+                        print("sucessfully saved user info to db")
+                    })
+                })
+            })
         }
     }
     

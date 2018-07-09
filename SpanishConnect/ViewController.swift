@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ViewController: UIViewController {
+    
+    //MARK:- setup buttons
     
     let plusButtonPhoto: UIButton = {
 
@@ -24,6 +27,7 @@ class ViewController: UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.addTarget(self, action: #selector(handleTextInputDidChange), for: .editingChanged)
         return textField
         
     }()
@@ -34,6 +38,7 @@ class ViewController: UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.addTarget(self, action: #selector(handleTextInputDidChange), for: .editingChanged)
         return textField
         
     }()
@@ -45,21 +50,24 @@ class ViewController: UIViewController {
         textField.backgroundColor = UIColor(white: 0, alpha: 0.03)
         textField.borderStyle = .roundedRect
         textField.font = UIFont.systemFont(ofSize: 14)
+        textField.addTarget(self, action: #selector(handleTextInputDidChange), for: .editingChanged)
         return textField
     }()
     
     
     let signUpButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
         button.layer.cornerRadius = 5
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        button.isEnabled = false
         return button
     }()
     
-
+    //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,6 +78,35 @@ class ViewController: UIViewController {
         plusButtonPhoto.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         
         setupInputFields()
+    }
+    
+    //MARK:- Helper Methods
+    @objc fileprivate func handleTextInputDidChange() {
+        let isFormValid = !(emailTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)! && !(passwordTextField.text?.isEmpty)!
+        
+        if isFormValid {
+            signUpButton.isEnabled = true
+            signUpButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        } else {
+            signUpButton.isEnabled = false
+            signUpButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+        }
+    }
+    
+    @objc fileprivate func handleSignUp() {
+        //create test user
+        guard let email = emailTextField.text, !email.isEmpty else {return}
+        guard let username = usernameTextField.text, !username.isEmpty else {return}
+        guard let password = passwordTextField.text, !password.isEmpty else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user: User?, error: Error?) in
+            if let err = error {
+                print("failed to create user", err)
+                return
+            }
+            
+            print("success...created a user in firebase")
+        }
     }
     
     fileprivate func setupInputFields() {

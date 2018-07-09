@@ -83,13 +83,14 @@ class ViewController: UIViewController {
     //MARK:- Helper Methods
     @objc fileprivate func handleTextInputDidChange() {
         let isFormValid = !(emailTextField.text?.isEmpty)! && !(usernameTextField.text?.isEmpty)! && !(passwordTextField.text?.isEmpty)!
-        
         if isFormValid {
             signUpButton.isEnabled = true
             signUpButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
         } else {
             signUpButton.isEnabled = false
             signUpButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 244)
+            
+            //test
         }
     }
     

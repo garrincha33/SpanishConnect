@@ -12,6 +12,9 @@
 		1B39FDF120EF686500E462F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FDEF20EF686500E462F4 /* Main.storyboard */; };
 		1B39FDF320EF686900E462F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FDF220EF686900E462F4 /* Assets.xcassets */; };
 		1B39FDF620EF686900E462F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FDF420EF686900E462F4 /* LaunchScreen.storyboard */; };
+		1B39FE1D20F0E76500E462F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE1C20F0E76500E462F4 /* Extensions.swift */; };
+		1B39FE1F20F348EC00E462F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */; };
+		9CF3F50F2D7EF2BD30B7AFCE /* Pods_SpanishConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,11 @@
 		1B39FDF220EF686900E462F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B39FDF520EF686900E462F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B39FDF720EF686900E462F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B39FE1C20F0E76500E462F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpanishConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1D958EA6CE8B2334CF66A69 /* Pods-SpanishConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		BF7765543695E2322FEFF483 /* Pods-SpanishConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF3F50F2D7EF2BD30B7AFCE /* Pods_SpanishConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				1B39FDEA20EF686500E462F4 /* SpanishConnect */,
 				1B39FDE920EF686500E462F4 /* Products */,
+				6A267F27FEAA1BBF862081CC /* Pods */,
+				EE3F12B6B0CE9CF5112B1225 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +65,41 @@
 		1B39FDEA20EF686500E462F4 /* SpanishConnect */ = {
 			isa = PBXGroup;
 			children = (
+				1B39FE1B20F0E74D00E462F4 /* Utils */,
 				1B39FDEB20EF686500E462F4 /* AppDelegate.swift */,
 				1B39FDED20EF686500E462F4 /* ViewController.swift */,
 				1B39FDEF20EF686500E462F4 /* Main.storyboard */,
 				1B39FDF220EF686900E462F4 /* Assets.xcassets */,
 				1B39FDF420EF686900E462F4 /* LaunchScreen.storyboard */,
 				1B39FDF720EF686900E462F4 /* Info.plist */,
+				1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */,
 			);
 			path = SpanishConnect;
+			sourceTree = "<group>";
+		};
+		1B39FE1B20F0E74D00E462F4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B39FE1C20F0E76500E462F4 /* Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6A267F27FEAA1BBF862081CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1D958EA6CE8B2334CF66A69 /* Pods-SpanishConnect.debug.xcconfig */,
+				BF7765543695E2322FEFF483 /* Pods-SpanishConnect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE3F12B6B0CE9CF5112B1225 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +109,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B39FDFA20EF686900E462F4 /* Build configuration list for PBXNativeTarget "SpanishConnect" */;
 			buildPhases = (
+				B6CE06619785DC6C6047F397 /* [CP] Check Pods Manifest.lock */,
 				1B39FDE420EF686500E462F4 /* Sources */,
 				1B39FDE520EF686500E462F4 /* Frameworks */,
 				1B39FDE620EF686500E462F4 /* Resources */,
+				AA2E4F57CF429CD54C78D760 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B39FDF620EF686900E462F4 /* LaunchScreen.storyboard in Resources */,
+				1B39FE1F20F348EC00E462F4 /* GoogleService-Info.plist in Resources */,
 				1B39FDF320EF686900E462F4 /* Assets.xcassets in Resources */,
 				1B39FDF120EF686500E462F4 /* Main.storyboard in Resources */,
 			);
@@ -130,12 +171,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AA2E4F57CF429CD54C78D760 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6CE06619785DC6C6047F397 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpanishConnect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1B39FDE420EF686500E462F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1B39FDEE20EF686500E462F4 /* ViewController.swift in Sources */,
+				1B39FE1D20F0E76500E462F4 /* Extensions.swift in Sources */,
 				1B39FDEC20EF686500E462F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,15 +365,13 @@
 		};
 		1B39FDFB20EF686900E462F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1D958EA6CE8B2334CF66A69 /* Pods-SpanishConnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = SpanishConnect/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.SpanishConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +381,13 @@
 		};
 		1B39FDFC20EF686900E462F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF7765543695E2322FEFF483 /* Pods-SpanishConnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = SpanishConnect/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.SpanishConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

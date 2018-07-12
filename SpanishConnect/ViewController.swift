@@ -130,13 +130,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             print("success...created a user in firebase")
             
             //upload photo
-            
             guard let image = self.plusButtonPhoto.imageView?.image else {return}
             guard let uploadData = UIImageJPEGRepresentation(image, 0.3) else {return}
             let filename = NSUUID().uuidString
-            
+            //firebase storage
             let storageRef = Storage.storage().reference()
             let storageRefChild = storageRef.child("profile_images").child(filename)
+            
             storageRefChild.putData(uploadData, metadata: nil, completion: { (metadata, err) in
                 if let err = err {
                     print("Unable to upload image into storage due to: \(err)")
@@ -149,11 +149,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     }
                     let profilePicUrl =  url?.absoluteString
                     print("Profile Image successfully uploaded into storage with url: \(profilePicUrl ?? "" )")
+                    //--firebase storage end
                     
                     guard let uid = user?.uid else {return}
                     let dictionaryValues = ["username": username, "profilePicUrl": profilePicUrl]
                     let values = [uid: dictionaryValues]
-                    
                     Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
                         if let err = err {
                             print("failed to save user info", err)

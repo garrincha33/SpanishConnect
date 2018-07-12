@@ -14,6 +14,8 @@
 		1B39FDF620EF686900E462F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FDF420EF686900E462F4 /* LaunchScreen.storyboard */; };
 		1B39FE1D20F0E76500E462F4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE1C20F0E76500E462F4 /* Extensions.swift */; };
 		1B39FE1F20F348EC00E462F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */; };
+		1B39FE2220F7CD7900E462F4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */; };
+		1B39FE2420F7CFDD00E462F4 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */; };
 		9CF3F50F2D7EF2BD30B7AFCE /* Pods_SpanishConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		1B39FDF720EF686900E462F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B39FE1C20F0E76500E462F4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpanishConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D958EA6CE8B2334CF66A69 /* Pods-SpanishConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		BF7765543695E2322FEFF483 /* Pods-SpanishConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 		1B39FDEA20EF686500E462F4 /* SpanishConnect */ = {
 			isa = PBXGroup;
 			children = (
+				1B39FE2020F7CD5A00E462F4 /* Controllers */,
 				1B39FE1B20F0E74D00E462F4 /* Utils */,
 				1B39FDEB20EF686500E462F4 /* AppDelegate.swift */,
 				1B39FDED20EF686500E462F4 /* ViewController.swift */,
@@ -83,6 +88,15 @@
 				1B39FE1C20F0E76500E462F4 /* Extensions.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		1B39FE2020F7CD5A00E462F4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */,
+				1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		6A267F27FEAA1BBF862081CC /* Pods */ = {
@@ -223,6 +237,8 @@
 			files = (
 				1B39FDEE20EF686500E462F4 /* ViewController.swift in Sources */,
 				1B39FE1D20F0E76500E462F4 /* Extensions.swift in Sources */,
+				1B39FE2220F7CD7900E462F4 /* MainTabBarController.swift in Sources */,
+				1B39FE2420F7CFDD00E462F4 /* UserProfileController.swift in Sources */,
 				1B39FDEC20EF686500E462F4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -371,7 +387,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = SpanishConnect/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.SpanishConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -387,7 +406,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UMQAGMF379;
 				INFOPLIST_FILE = SpanishConnect/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twisted.SpanishConnect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

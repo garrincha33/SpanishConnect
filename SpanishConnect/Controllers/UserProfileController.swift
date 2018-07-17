@@ -14,7 +14,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.backgroundColor = .white
+        collectionView?.backgroundColor = .yellow
         navigationItem.title = "User Profile"
         navigationItem.title = Auth.auth().currentUser?.uid
         

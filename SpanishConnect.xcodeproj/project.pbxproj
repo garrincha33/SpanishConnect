@@ -16,6 +16,7 @@
 		1B39FE1F20F348EC00E462F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */; };
 		1B39FE2220F7CD7900E462F4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */; };
 		1B39FE2420F7CFDD00E462F4 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */; };
+		1B672DC720FE71C800CF1040 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B672DC620FE71C800CF1040 /* UserProfileHeader.swift */; };
 		9CF3F50F2D7EF2BD30B7AFCE /* Pods_SpanishConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		1B39FE1E20F348EC00E462F4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		1B672DC620FE71C800CF1040 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		AA3C01F21E8AE7B9724D7C6E /* Pods_SpanishConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpanishConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1D958EA6CE8B2334CF66A69 /* Pods-SpanishConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		BF7765543695E2322FEFF483 /* Pods-SpanishConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpanishConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpanishConnect/Pods-SpanishConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			children = (
 				1B39FE2120F7CD7900E462F4 /* MainTabBarController.swift */,
 				1B39FE2320F7CFDD00E462F4 /* UserProfileController.swift */,
+				1B672DC620FE71C800CF1040 /* UserProfileHeader.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				1B39FDEE20EF686500E462F4 /* ViewController.swift in Sources */,
 				1B39FE1D20F0E76500E462F4 /* Extensions.swift in Sources */,
 				1B39FE2220F7CD7900E462F4 /* MainTabBarController.swift in Sources */,
+				1B672DC720FE71C800CF1040 /* UserProfileHeader.swift in Sources */,
 				1B39FE2420F7CFDD00E462F4 /* UserProfileController.swift in Sources */,
 				1B39FDEC20EF686500E462F4 /* AppDelegate.swift in Sources */,
 			);

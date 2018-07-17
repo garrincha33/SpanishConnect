@@ -30,7 +30,6 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         //not correct
         //header.addSubview(UIImageView())
-        
         return header
     }
     
